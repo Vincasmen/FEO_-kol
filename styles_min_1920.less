@@ -48,20 +48,58 @@
       color: #000000;
       width: 120px;
       height: 28px;
+      cursor: pointer;
     }
   }
 
+  .swiper {
+    // height: 600px;
+    .swiper-slide {
+      // display: flex;
+      height: auto;
+      margin: 0px;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      // background-color: #8f545e;
+    }
+    .swiper_navBtn_div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      .swiper_navBtn {
+        display: flex;
+        flex-direction: column;
+        z-index: 99;
+        justify-content: center;
+        top: 30%;
+        width: 100%;
+        color: @color;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        border: none;
+        background: #e9ebee;
+        border: 6px solid #ffffff;
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    height: 150px;
+  }
   .products_section_frame {
     display: flex;
     flex-direction: row;
-    height: 467px;
+    // overflow-x: hidden;
 
     .product_item {
       position: relative;
       box-sizing: border-box;
       display: flex;
       width: 295.84px;
-      // height: 467px;
+      height: 447px;
       left: 0px;
       top: 0px;
       padding: 20px 15px;
@@ -135,7 +173,7 @@
             padding: 0px;
             gap: 15px;
             position: absolute;
-            width: 193px;
+            width: 256px;
             height: 55px;
             margin-left: 15px;
             left: 0px;
@@ -200,15 +238,13 @@
               align-items: flex-start;
               padding: 6px;
               gap: 10px;
-              width: 16px;
-              height: 30px;
               font-weight: 400;
               font-style: normal;
-              font-size: 20px;
               .heart_icon_styling {
+                font-size: 20px;
                 line-height: 20px;
                 text-align: center;
-                color: #bebebe;
+                color: #e9ebee;
                 .fa-heart:hover {
                   color: crimson;
                 }
@@ -227,7 +263,7 @@
           width: 190px;
           height: 162px;
           margin: 0px 0px 0px 15px;
-          left: 0px;
+          left: 15%;
           top: 80px;
           transform: scaleX(-1);
           cursor: pointer;
@@ -327,8 +363,13 @@
           text-align: center;
           color: #000000;
         }
-        .basket_button_styling {
+
+        .basketDisplayNone {
+          display: none;
+        }
+        .basketButtonStyling {
           display: flex;
+          // display: none;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -364,7 +405,7 @@
         }
         .plus_minus_buttons_div_styling {
           display: flex;
-          // display: none;
+          display: none;
           position: relative;
           // z-index: 99;
           flex-direction: row;
@@ -372,7 +413,7 @@
           align-items: center;
           width: 160px;
           height: 40px;
-          top: -32px;
+          // top: -32px;
 
           .amount_div_styling {
             display: flex;
@@ -381,7 +422,6 @@
             padding: 0px;
             gap: 5px;
             width: 30px;
-
             margin: 0px;
 
             .amount_paragraph_styling {
@@ -410,6 +450,7 @@
               height: 40px;
               border: none;
               background: #e9ebee;
+              cursor: pointer;
             }
           }
           .plus_button_div_styling {
@@ -426,6 +467,7 @@
               height: 40px;
               border: none;
               background-color: @color;
+              cursor: pointer;
             }
           }
         }
