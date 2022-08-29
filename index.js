@@ -265,12 +265,12 @@ const swiper = new Swiper(".swiper", {
   },
   //! BREAKPOINTY PRO SWIPER !//
   breakpoints: {
-    0: { slidesPerView: 1 },
-    200: { slidesPerView: 1 },
-    490: { slidesPerView: 2 },
-    700: { slidesPerView: 3 },
-    1200: { slidesPerView: 4 },
-    1500: { slidesPerView: 5 },
-    1870: { slidesPerView: 6 },
+    50: { slidesPerView: 1, spaceBetween: 100 },
+    200: { slidesPerView: 2, spaceBetween: 120 },
+    490: { slidesPerView: 2, spaceBetween: 10 },
+    700: { slidesPerView: 3, spaceBetween: 0 },
+    1200: { slidesPerView: 4, spaceBetween: 30 },
+    1500: { slidesPerView: 5, spaceBetween: 0 },
+    1870: { slidesPerView: 6, spaceBetween: 0 },
   },
 });
