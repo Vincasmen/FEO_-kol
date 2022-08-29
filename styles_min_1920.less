@@ -79,7 +79,7 @@
         border-radius: 50%;
         width: 60px;
         height: 60px;
-        border: none;
+        // border: none;
         background: #e9ebee;
         border: 6px solid #ffffff;
       }
@@ -363,31 +363,28 @@
           text-align: center;
           color: #000000;
         }
-
         .basketDisplayNone {
           display: none;
-        }
-        .basketButtonStyling {
-          display: flex;
-          // display: none;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 12px 30px;
-          gap: 10px;
-          width: 160px;
-          height: 40px;
-          margin: -1rem;
-          background: #db0b5b;
-          border-radius: 5px;
-          border: none;
-          color: white;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 19px;
-          cursor: pointer;
-
+          .basketButtonStyling {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 30px;
+            gap: 10px;
+            width: 160px;
+            height: 40px;
+            margin: -1rem;
+            background: #db0b5b;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 19px;
+            cursor: pointer;
+          }
           .inner_button_div {
             display: flex;
             flex-direction: row;
@@ -403,18 +400,21 @@
             width: 18px;
           }
         }
-        .plus_minus_buttons_div_styling {
-          display: flex;
-          display: none;
-          position: relative;
-          // z-index: 99;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          width: 160px;
-          height: 40px;
-          // top: -32px;
 
+        .plusMinusDisplayNone {
+          // display: none;
+
+          .plus_minus_buttons_div_styling {
+            display: flex;
+            position: relative;
+            // z-index: 99;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 160px;
+            height: 40px;
+            // top: -32px;
+          }
           .amount_div_styling {
             display: flex;
             flex-direction: column;
@@ -547,13 +547,14 @@
           flex-direction: column;
           align-items: flex-start;
           .min_992_styling {
+            display: flex;
             font-style: normal;
             font-weight: 600;
             font-size: 26px;
             line-height: 34px;
             width: 517px;
             height: 34px;
-            margin: 0px;
+            margin-bottom: 20px;
           }
           .about_section_paragraph_styling {
             font-style: normal;

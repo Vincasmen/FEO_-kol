@@ -48,21 +48,36 @@
     }
   }
   .swiper {
-    width: 100rem;
-    height: 600px;
+    // height: 600px;
     .swiper-slide {
       // display: flex;
+      height: auto;
       margin: 0px;
       justify-content: center;
       align-items: center;
       width: 150px;
       // background-color: #8f545e;
     }
-    .swiper_navBtn {
+    .swiper_navBtn_div {
       display: flex;
-      justify-content: space-between;
-      width: 1%;
-      color: @color;
+      justify-content: center;
+      width: 100%;
+
+      .swiper_navBtn {
+        display: none;
+        flex-direction: column;
+        z-index: 99;
+        justify-content: center;
+        top: 30%;
+        width: 100%;
+        color: @color;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        // border: none;
+        background: #e9ebee;
+        border: 6px solid #ffffff;
+      }
     }
   }
 
@@ -344,26 +359,30 @@
           text-align: center;
           color: #000000;
         }
-        .basket_button_styling {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 12px 30px;
-          gap: 10px;
-          width: 160px;
-          height: 40px;
-          margin: -1rem;
-          background: #db0b5b;
-          border-radius: 5px;
-          border: none;
-          color: white;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 19px;
-          cursor: pointer;
 
+        .basketDisplayNone {
+          display: none;
+
+          .basketButtonStyling {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 30px;
+            gap: 10px;
+            width: 160px;
+            height: 40px;
+            margin: -1rem;
+            background: #db0b5b;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 19px;
+            cursor: pointer;
+          }
           .inner_button_div {
             display: flex;
             flex-direction: row;

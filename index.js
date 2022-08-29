@@ -1,3 +1,5 @@
+"use strict";
+
 // const minus = document.querySelectorAll(".minus_button_styling");
 // const plus = document.querySelectorAll(".plus_button_styling");
 // const plusMinusDiv = document.getElementById("plus_minus_div");
@@ -208,7 +210,7 @@ let generateCard = () => {
       <p class="price_to_weight_paragraph">${weightToPrice}</p>
     </div>
 
-    <button class="basketButtonStyling basket_display_none">
+    <button id="basketBtn" class="basketButtonStyling">
       <div class="inner_button_div">
         <img
           class="basket_icon_styling"
@@ -251,13 +253,17 @@ let generateCard = () => {
 generateCard();
 const plusButton = document.querySelectorAll(".plus_button_styling");
 const minusButton = document.querySelectorAll(".minus_button_styling");
-const amount = document.querySelectorAll("amount");
+const amount = document.querySelectorAll(".amount");
 
-const basket = document.querySelectorAll(".basketButtonStyling");
+const basket = document.querySelectorAll("button.basketButtonStyling");
+const plusMinus = document.querySelectorAll(
+  "div.plus_minus_buttons_div_styling"
+);
 
 for (let i = 0; i < basket.length; i++) {
   basket[i].onclick = () => {
-    basket[i].classList.add(".basketDisplayNone");
+    basket[i].classList.add("basketDisplayNone");
+    plusMinus[i].classList.remove("plusMinusDisplayNone");
     console.log("basket_clicked");
   };
 }

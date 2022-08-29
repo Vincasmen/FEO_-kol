@@ -13,6 +13,27 @@
     // overflow: hidden;
   }
 
+  .basketButtonStyling {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 30px;
+    gap: 10px;
+    width: 160px;
+    height: 40px;
+    margin: -1rem;
+    background: #db0b5b;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    cursor: pointer;
+  }
+
   .main_heading_div_styling {
     display: flex;
     flex-direction: row;
@@ -46,7 +67,7 @@
       // background-color: #8f545e;
     }
     .swiper_navBtn {
-      display: flex;
+      display: none;
       justify-content: space-between;
       width: 1%;
       color: @color;
@@ -329,41 +350,23 @@
           text-align: center;
           color: #000000;
         }
-        .basket_button_styling {
-          display: flex;
-          display: none;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 12px 30px;
-          gap: 10px;
-          width: 160px;
-          height: 40px;
-          margin: -1rem;
-          background: #db0b5b;
-          border-radius: 5px;
-          border: none;
-          color: white;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 19px;
-          cursor: pointer;
 
-          .inner_button_div {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-            padding: 0px;
-            gap: 8px;
-            width: 96px;
-            height: 19px;
-          }
-          .basket_icon_styling {
-            height: 15px;
-            width: 18px;
-          }
+        .basketDisplayNone {
+          display: none;
+        }
+        .inner_button_div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          padding: 0px;
+          gap: 8px;
+          width: 96px;
+          height: 19px;
+        }
+        .basket_icon_styling {
+          height: 15px;
+          width: 18px;
         }
 
         .plus_minus_buttons_div_styling {
