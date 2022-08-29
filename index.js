@@ -1,65 +1,8 @@
 "use strict";
 
-// const minus = document.querySelectorAll(".minus_button_styling");
-// const plus = document.querySelectorAll(".plus_button_styling");
-// const plusMinusDiv = document.getElementById("plus_minus_div");
-// const amount = document.getElementById("amount_paragraph");
-
-// let initialamount = 0;
-
-// amount.textContent = initialamount;
-
-// const decrement = () => {
-//   initialamount--;
-//   amount.textContent = initialamount;
-// };
-// const increment = () => {
-//   initialamount++;
-//   amount.textContent = initialamount;
-// };
-
-// // plusMinusDiv.style.display = "none";
-
-// amount.addEventListener("click", () => {
-//   console.log("clicked_paragraph");
-// });
-
-// for (let i = 0; i < plusMinusDiv.length; i++) {
-//   plusMinusDiv[i];
-// }
-
-// // const inital = () => {
-// //   plusMinusDiv.style.display = "none";
-// // };
-
-// // minus.addEventListener("click", decrement);
-
-// for (let i = 0; i < minus.length; i++) {
-//   minus[i].onclick = function () {
-//     decrement();
-//   };
-// }
-
-// // minus.addEventListener("click", () => {
-// //   console.log("MINUS CLICKED");
-// // });
-// // plus.addEventListener("click", () => {
-// //   console.log("PLUS CLICKED");
-// // });
-
-// for (let i = 0; i < minus.length; i++) {
-//   minus[i].onclick = () => {
-//     console.log("➖");
-//   };
-// }
-// for (let i = 0; i < plus.length; i++) {
-//   plus[i].onclick = () => {
-//     console.log("➕");
-//   };
-// }
-
 let card = document.getElementById("product");
 
+//! ARRAY S OBJEKTY PRO JEDNOTLIVÉ HTML ELEMENTY !//
 let cardData = [
   {
     id: 1,
@@ -141,6 +84,8 @@ let cardData = [
   },
 ];
 
+//! FNCE PRO GENEROVÁNÍ KARTY PRODUKTU !//
+//! K divu s classem "swiper-slide", je možné přidat ${slide} pro zobrazení pořadí jednotlivé ho slidu u každé karty !//
 let generateCard = () => {
   return (card.innerHTML = cardData
     .map((e) => {
@@ -220,7 +165,7 @@ let generateCard = () => {
         Do košíku
       </div>
     </button>
-    <div id="plus_minus_div" class="plus_minus_buttons_div_styling">
+    <div id="plus_minus_div" class="plus_minus_buttons_div_styling plusMinusDisplayNone">
       <div class="minus_button_div_styling">
         <button  id="minus_btn" class="minus_button_styling">
           <span class="minus_icon_styling">
@@ -251,109 +196,81 @@ let generateCard = () => {
     .join(""));
 };
 generateCard();
-const plusButton = document.querySelectorAll(".plus_button_styling");
-const minusButton = document.querySelectorAll(".minus_button_styling");
-const amount = document.querySelectorAll(".amount");
+const plusButton = document.querySelectorAll("div.plus_button_div_styling");
+const minusButton = document.querySelectorAll("div.minus_button_div_styling");
+const amount = document.querySelector("p.amount_paragraph_styling");
 
 const basket = document.querySelectorAll("button.basketButtonStyling");
+const inStock = document.querySelectorAll("div.instock_div_styling");
 const plusMinus = document.querySelectorAll(
   "div.plus_minus_buttons_div_styling"
 );
 
+//! FOR LOOP PRO BASKET TLAČÍTKO !//
 for (let i = 0; i < basket.length; i++) {
   basket[i].onclick = () => {
+    increment();
     basket[i].classList.add("basketDisplayNone");
     plusMinus[i].classList.remove("plusMinusDisplayNone");
-    console.log("basket_clicked");
+    inStock[i].classList.add("instock_top_atr");
   };
 }
 
-// amount.addEventListener("click", function () {
-//   console.log("textarea clicked");
-// });
-
+//! LOGIKA PRO +/- !//
 let initialamount = 0;
 
+const increment = () => {
+  initialamount++;
+  amount.textContent = initialamount;
+};
+const decrement = () => {
+  initialamount--;
+  amount.textContent = initialamount;
+};
+
+//! FOR LOOP PRO PLUS TLAČÍTKO !//
 for (let i = 0; i < plusButton.length; i++) {
   plusButton[i].onclick = () => {
-    initialamount = initialamount + 1;
-    amount.innerText = initialamount;
-
-    console.log("plus clicked");
+    increment();
   };
 }
+
+//! FOR LOOP PRO MÍNUS TLAČÍTKO !//
 for (let i = 0; i < minusButton.length; i++) {
   minusButton[i].onclick = () => {
-    initialamount = initialamount - 1;
-    amount.innerHTML = initialamount;
-    console.log("minus clicked");
+    if (amount.textContent > 1) {
+      decrement();
+    } else {
+      decrement();
+      basket[i].classList.remove("basketDisplayNone");
+      plusMinus[i].classList.add("plusMinusDisplayNone");
+      inStock[i].classList.remove("instock_top_atr");
+    }
   };
 }
 
+//! ATRIBUTY PRO SWIPER !//
+//! SWIPER SE MI SAMOVOLNĚ POHYBUJE A AKTUALIZUJE KDYŽ KLIKÁM NA RŮZNÉ ČÁSTI KARET !//
 const swiper = new Swiper(".swiper", {
   // Optional parameters
-  slidesPerView: 6,
+  slidesPerView: 1,
   loop: true,
   centerSlide: "true",
   fade: "true",
-  grabCursor: "true",
+  // grabCursor: "true",
 
-  // Navigation arrows
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
-    navigationDisabledClass: ".swiper-navigation-disabled",
   },
-
+  //! BREAKPOINTY PRO SWIPER !//
   breakpoints: {
-    0: {
-      slidesPerView: 1,
-      navigation: {
-        nextEl: ".swiper-navigation-disabled",
-        prevEl: ".swiper-navigation-disabled",
-      },
-      nextEl: "swiper-navigation-disabled",
-      prevEl: "swiper-navigation-disabled",
-    },
-    200: {
-      slidesPerView: 1,
-      nextEl: "swiper-button-disabled",
-      prevEl: "swiper-button-disabled",
-      spaceBetween: 0,
-    },
-    490: {
-      slidesPerView: 2,
-      nextEl: "swiper-button-disabled",
-      prevEl: "swiper-button-disabled",
-    },
-    700: {
-      slidesPerView: 3,
-      nextEl: "swiper-button-disabled",
-      prevEl: "swiper-button-disabled",
-    },
+    0: { slidesPerView: 1 },
+    200: { slidesPerView: 1 },
+    490: { slidesPerView: 2 },
+    700: { slidesPerView: 3 },
     1200: { slidesPerView: 4 },
     1500: { slidesPerView: 5 },
     1870: { slidesPerView: 6 },
   },
 });
-
-// const increment = (id) => {
-//   const selectedCard = id;
-//   console.log(id);
-// };
-// const decrement = (id) => {
-//   const selectedCard = id;
-//   console.log(id);
-// };
-// const value = () => {};
-
-// amount.textContent = initialamount;
-
-// const decrement = () => {
-//   initialamount--;
-//   amount.textContent = initialamount;
-// };
-// const increment = () => {
-//   initialamount++;
-//   amount.textContent = initialamount;
-// };
